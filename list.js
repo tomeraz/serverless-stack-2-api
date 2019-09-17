@@ -3,7 +3,7 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context) {
   const params = {
-    TableName: "notes",
+    TableName: process.env.tableName,
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key
@@ -12,8 +12,8 @@ export async function main(event, context) {
     //   of the authenticated user
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: {
-      ":userId": event.requestContext.identity.cognitoIdentityId
-    }
+      ":userId": event.requestContext.identity.cognitoIdentityId,
+    },
   };
 
   try {
