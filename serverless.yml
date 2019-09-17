@@ -1,6 +1,6 @@
-service: notes-app-api
+service: notes-app-2-api
 
-# Create an optimized package for our functions 
+# Create an optimized package for our functions
 package:
   individually: true
 
